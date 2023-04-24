@@ -14,6 +14,7 @@
                 print"<script>location.href='?page=listar';</script>";
             }else{
                 print"<script>alert('Não foi possível cadastrar');</script>";
+                print"<script>location.href='?page=listar';</script>";
             }
             break;
 
