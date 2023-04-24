@@ -1,5 +1,5 @@
 <?php 
-    switch ($_POST["acao"] ){
+    switch ($_REQUEST["acao"] ){
         case 'cadastrar':
             $nome = $_POST["nome"];
             $email = $_POST["email"];
@@ -41,7 +41,16 @@
             break;
 
         case 'excluir':
-            // Seu código para ação de exclusão aqui
+            $sql = "DELETE FROM usuarios where id=".$_REQUEST["id"];
+
+            $res = $conn->query($sql);
+            if($res==true){
+                print"<script>alert('Excluido com sucesso');</script>";
+                print"<script>location.href='?page=listar';</script>";
+            }else{
+                print"<script>alert('Não foi possível excluir');</script>";
+                print"<script>location.href='?page=listar';</script>";
+            }
             break;
         
         default:
